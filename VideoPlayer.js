@@ -1326,8 +1326,8 @@ const styles = {
     circle: {
       borderRadius: 15,
       position: 'relative',
-      top: 4,
-      left: 4,
+      top: 10,
+      left: 0,
       height: 12,
       width: 12
     }
