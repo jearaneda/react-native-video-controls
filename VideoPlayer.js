@@ -11,7 +11,8 @@ import {
   Easing,
   Image,
   View,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native';
 import _ from 'lodash';
 
@@ -1063,6 +1064,7 @@ export default class VideoPlayer extends Component {
   }
 
   renderError() {
+    const { onReload } = this.props;
     if (this.state.error) {
       return (
         <View style={styles.error.container}>
@@ -1070,7 +1072,15 @@ export default class VideoPlayer extends Component {
             source={require('./assets/img/error-icon.png')}
             style={styles.error.icon}
           />
-          <Text style={styles.error.text}>Video no Disponible</Text>
+          <Text style={styles.error.text}>Video no disponible</Text>
+
+          <TouchableOpacity onPress={() => onReload()}>
+            <Text
+              style={[styles.error.text, { textDecorationLine: 'underline' }]}
+            >
+              Recargar
+            </Text>
+          </TouchableOpacity>
         </View>
       );
     }
@@ -1262,7 +1272,7 @@ const styles = {
       height: 1,
       marginLeft: 20,
       marginRight: 20,
-      width: 150
+      width: 50
     },
     track: {
       backgroundColor: '#333',
@@ -1286,7 +1296,7 @@ const styles = {
   seekbar: StyleSheet.create({
     container: {
       alignSelf: 'stretch',
-      height: 50,
+      height: 40,
       marginLeft: 20,
       marginRight: 20
     },
@@ -1299,7 +1309,7 @@ const styles = {
     },
     fill: {
       backgroundColor: '#FFF',
-      height: 1,
+      height: 5,
       width: '100%'
     },
     handle: {
