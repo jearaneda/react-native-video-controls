@@ -255,7 +255,7 @@ export default class VideoPlayer extends Component {
     const delta = time - state.lastScreenPress;
 
     if (delta < 300) {
-      this.methods.toggleFullscreen();
+      //   this.methods.toggleFullscreen();
     }
 
     this.methods.toggleControls();
@@ -1074,7 +1074,12 @@ export default class VideoPlayer extends Component {
           />
           <Text style={styles.error.text}>Video no disponible</Text>
 
-          <TouchableOpacity onPress={() => onReload()}>
+          <TouchableOpacity
+            onPress={() => {
+              this.setState({ error: false });
+              onReload();
+            }}
+          >
             <Text
               style={[styles.error.text, { textDecorationLine: 'underline' }]}
             >
@@ -1319,10 +1324,10 @@ const styles = {
       width: 28
     },
     circle: {
-      borderRadius: 12,
+      borderRadius: 15,
       position: 'relative',
-      top: 8,
-      left: 8,
+      top: 4,
+      left: 4,
       height: 12,
       width: 12
     }
