@@ -838,8 +838,7 @@ export default class VideoPlayer extends Component {
           }
         ]}
       >
-        <ImageBackground
-          source={require('./assets/img/top-vignette.png')}
+        <View
           style={[styles.controls.column]}
           imageStyle={[styles.controls.vignette]}
         >
@@ -850,7 +849,7 @@ export default class VideoPlayer extends Component {
               {fullscreenControl}
             </View>
           </SafeAreaView>
-        </ImageBackground>
+        </View>
       </Animated.View>
     );
   }
@@ -933,10 +932,7 @@ export default class VideoPlayer extends Component {
           }
         ]}
       >
-        <ImageBackground
-          source={require('./assets/img/bottom-vignette.png')}
-          style={[styles.controls.column]}
-          imageStyle={[styles.controls.vignette]}
+        <View
         >
           {seekbarControl}
           <SafeAreaView
@@ -946,7 +942,7 @@ export default class VideoPlayer extends Component {
             {this.renderTitle()}
             {timerControl}
           </SafeAreaView>
-        </ImageBackground>
+        </View>
       </Animated.View>
     );
   }
@@ -1139,7 +1135,8 @@ const styles = {
       backgroundColor: '#000',
       flex: 1,
       alignSelf: 'stretch',
-      justifyContent: 'space-between'
+      justifyContent: 'space-between',
+      overflow: 'hidden',
     },
     video: {
       overflow: 'hidden',
